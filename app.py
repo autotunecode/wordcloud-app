@@ -28,7 +28,7 @@ def crawl_all_pages(base_url, exclude_urls, max_pages=50, single_page=False):
         if not single_page:
             for link in bs.find_all('a'):
                 href = link.get('href')
-                exclude_extensions = ['.jpg', '.png', '.gif', '.jpeg', '.pdf', 'zip']
+                exclude_extensions = ['.jpg', '.png', '.gif', '.jpeg', '.pdf', '.zip']
                 if href and not href.startswith('#') and not any(ext in href for ext in exclude_extensions):
                     next_url = urljoin(base_url, href)
                     if next_url.startswith(base_url) and next_url not in visited:
